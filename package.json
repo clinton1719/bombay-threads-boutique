@@ -1,0 +1,26 @@
+{
+  "name": "bombay-threads-boutique",
+  "version": "1.0.0",
+  "description": "Website to sell crochet",
+  "repository": "https://github.com/clinton1719/bombay-threads-boutique.git",
+  "author": "clinton1719 <clintoncleetus17@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "vite": "^5.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "front-end"
+    ]
+  },
+  "scripts": {
+    "tailwind": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css --watch",
+    "prefe:build": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css",
+    "prefe:dev": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css",
+    "prefe:preview": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css",
+    "fe:dev": "yarn workspace front-end dev",
+    "fe:build": "yarn workspace front-end build",
+    "fe:lint": "yarn workspace front-end lint",
+    "fe:preview": "yarn workspace front-end vite preview"
+  }
+}
