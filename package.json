@@ -10,17 +10,17 @@
   },
   "workspaces": {
     "packages": [
-      "front-end"
+      "frontend"
     ]
   },
   "scripts": {
-    "tailwind": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css --watch",
-    "prefe:build": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css",
-    "prefe:dev": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css",
-    "prefe:preview": "yarn workspace front-end npx tailwindcss -i ./src/index.css -o ./src/main.css",
-    "fe:dev": "yarn workspace front-end dev",
-    "fe:build": "yarn workspace front-end build",
-    "fe:lint": "yarn workspace front-end lint",
-    "fe:preview": "yarn workspace front-end vite preview"
+    "tailwind": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css --watch",
+    "prefe:build": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css",
+    "prefe:dev": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css",
+    "prefe:preview": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css",
+    "fe:dev": "yarn workspace frontend dev",
+    "fe:build": "yarn workspace frontend build",
+    "fe:lint": "yarn workspace frontend lint",
+    "fe:preview": "yarn workspace frontend vite preview"
   }
 }
