@@ -14,10 +14,10 @@
     ]
   },
   "scripts": {
-    "tailwind": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css --watch",
-    "prefe:build": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css",
-    "prefe:dev": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css",
-    "prefe:preview": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.css",
+    "tailwind": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.min.css --watch",
+    "prefe:build": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.min.css",
+    "prefe:dev": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.min.css",
+    "prefe:preview": "yarn workspace frontend npx tailwindcss -i ./src/index.css -o ./src/main.min.css",
     "fe:dev": "yarn workspace frontend dev",
     "fe:build": "yarn workspace frontend build",
     "fe:lint": "yarn workspace frontend lint",
