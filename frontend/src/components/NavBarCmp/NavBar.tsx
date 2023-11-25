@@ -13,6 +13,7 @@ const NavBar = () => {
   return (
     <>
       <nav className="flex flex-row justify-between items-center px-2 py-2">
+        {/* Menu Bar for mobile devices */}
         <div className="w-5 md:hidden ml-1">
           <svg
             viewBox="0 0 100 80"
@@ -25,6 +26,7 @@ const NavBar = () => {
             <rect y="60" width="100" height="20"></rect>
           </svg>
         </div>
+        {/* Magnifying glass for mobile devices */}
         <div className="w-5 md:hidden ml-4">
           <svg
             fill="#000000"
@@ -45,6 +47,7 @@ const NavBar = () => {
         <div className="ml-2">
           <span>Bombay Threads Boutique</span>
         </div>
+        {/* Search bar, search icon and button for larger devices */}
         <div className="hidden md:flex md:items-center relative md:flex-1 ml-32 mr-56 mt-2">
           <svg
             className="w-5 absolute inset-y-0 left-0 fill-white mt-4 ml-2"
@@ -77,6 +80,7 @@ const NavBar = () => {
         </div>
       </nav>
 
+      {/* Categories Bar */}
       {size.width > 720 ? (
         <NavBarCategories />
       ) : showNav ? (
@@ -85,6 +89,7 @@ const NavBar = () => {
         <p>Testing</p>
       )}
 
+      {/* Body of Website */}
       <Outlet />
     </>
   );
