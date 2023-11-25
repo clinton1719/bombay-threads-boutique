@@ -18,10 +18,6 @@
   span {
     @apply font-bold text-sm leading-normal lg:text-lg text-black tracking-normal;
   }
-
-  button {
-    @apply bg-black text-white font-semibold py-2 px-4 shadow-md shadow-black rounded-lg outline outline-white hover:shadow-xl hover:transform hover:scale-105 duration-300;
-  }
 }
 
 @layer components {
@@ -31,5 +27,13 @@
 
   .subCategoryNavBar {
     @apply flex items-center justify-center bg-bgGray w-full h-14 border-t-2 border-b-2 border-black;
+  }
+
+  .btn-primary {
+    @apply max-h-11 bg-black text-white font-semibold py-2 px-4 shadow-md shadow-black rounded-lg outline outline-white hover:shadow-xl hover:transform hover:scale-105 duration-300;
+  }
+
+  .btn-secondary {
+    @apply max-h-11 bg-white text-black font-semibold py-2 px-4 shadow-md shadow-white rounded-lg outline outline-black hover:shadow-xl hover:transform hover:scale-105 duration-300;
   }
 }

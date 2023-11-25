@@ -20,12 +20,22 @@ const NavBarCategories = () => {
           </li>
           <li className="subCategoryNavBar">
             <Link to={'#'} className="a">
-              Children
+              Kids
             </Link>
           </li>
           <li className="subCategoryNavBar">
             <Link to={'#'} className="a">
-              Winter
+              Accessories
+            </Link>
+          </li>
+          <li className="subCategoryNavBar">
+            <Link to={'#'} className="a">
+              Decor
+            </Link>
+          </li>
+          <li className="subCategoryNavBar">
+            <Link to={'#'} className="a">
+              Linens
             </Link>
           </li>
           <li className="subCategoryNavBar">
