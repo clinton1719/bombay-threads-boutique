@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './main.min.css';
-import NavBar from './NavBar.tsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePageCmp/homePage.tsx';
+import NavBar from './components/NavBarCmp/NavBar.tsx';
+import './css/main.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <NavBar />
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<NavBar />}>
+          <Route path="men" element={<HomePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
