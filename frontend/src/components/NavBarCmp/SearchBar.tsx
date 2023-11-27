@@ -8,7 +8,7 @@ const SearchBar = ({ openSearchBar }: SearchBarProps) => {
       <div
         className={`${
           !openSearchBar && 'hidden'
-        } absolute w-full mt-32 md:flex md:items-center md:relative md:flex-1 md:ml-32 md:mr-56 md:mt-2`}
+        } absolute w-full mt-32 md:flex md:items-center md:relative md:flex-1 md:ml-56 md:mr-48 md:mt-2`}
       >
         <svg
           className="w-5 mt-4 absolute fill-black inset-y-0 left-0 ml-2"

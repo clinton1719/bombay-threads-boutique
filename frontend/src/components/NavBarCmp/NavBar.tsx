@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import useWindowSize from '../../utils/useWindowSize';
 import NavBarCategories from './NavBarCategories';
 import SearchBar from './SearchBar';
@@ -10,8 +10,7 @@ It has logo, search, sign in etc */
 const NavBar = () => {
   const [showNav, setShowNav] = useState(false);
   const [openSearchBar, setOpenSearchBar] = useState(false);
-  const size = useWindowSize();
-  console.log(size);
+  const size: { width: number; height: number } = useWindowSize();
   return (
     <>
       <nav className="flex flex-row justify-between items-center px-2 py-2">
@@ -32,7 +31,7 @@ const NavBar = () => {
           </svg>
         </div>
         {/* Magnifying glass for mobile devices */}
-        <div className="w-5 md:hidden ml-1">
+        <div className="w-5 ml-2 md:hidden">
           <svg
             fill="#000000"
             version="1.1"
@@ -53,9 +52,9 @@ const NavBar = () => {
             </g>
           </svg>
         </div>
-        <div className="ml-2">
-          <span>Bombay Threads Boutique</span>
-        </div>
+        <Link className="ml-2" to={'/'}>
+          <span>G.Dezignz</span>
+        </Link>
         {/* Search bar, search icon and button for larger devices */}
         {size.width > 720 ? (
           <SearchBar openSearchBar={openSearchBar} />
@@ -80,9 +79,9 @@ const NavBar = () => {
 
       {/* Categories Bar */}
       {size.width > 720 ? (
-        <NavBarCategories />
+        <NavBarCategories showNav={showNav} setShowNav={setShowNav} />
       ) : showNav ? (
-        <NavBarCategories />
+        <NavBarCategories showNav={showNav} setShowNav={setShowNav} />
       ) : null}
 
       {/* Body of Website */}
