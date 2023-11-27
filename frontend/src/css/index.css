@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color: #ffffff;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  span {
+    @apply font-bold text-sm leading-normal lg:text-lg text-black tracking-normal;
+  }
+}
+
+@layer components {
+  .a {
+    @apply font-normal text-lg leading-normal text-black tracking-normal hover:font-extrabold hover:underline lg:text-lg;
+  }
+
+  .subCategoryNavBar {
+    @apply flex items-center justify-center bg-bgGray w-full h-14 border-t-2 border-b-2 border-black;
+  }
+
+  .btn-primary {
+    @apply max-h-11 bg-black text-white font-semibold py-2 px-4 shadow-md shadow-black rounded-lg outline outline-white hover:shadow-xl hover:transform hover:scale-105 duration-300;
+  }
+
+  .btn-secondary {
+    @apply max-h-11 bg-white text-black font-semibold py-2 px-4 shadow-md shadow-white rounded-lg outline outline-black hover:shadow-xl hover:transform hover:scale-105 duration-300;
+  }
+}
