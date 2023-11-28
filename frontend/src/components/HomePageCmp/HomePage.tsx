@@ -1,5 +1,4 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import { useGetAllItemsQuery } from '../../api/items';
 import { Item } from '../../utils/interfaces';
 import Card from '../CardCmp/Card';
 import Error from '../ErrorCmp/Error';
@@ -8,28 +7,38 @@ import Error from '../ErrorCmp/Error';
 showing home page with all categories */
 
 const HomePage = () => {
-  const list: Array<Item> = useSelector(
-    (state: RootState) => state.itemSlice.list
-  );
-  const categories: Array<string> = useSelector(
-    (state: RootState) => state.itemSlice.categories
-  );
-  console.log(categories);
+  const { data, error, isLoading } = useGetAllItemsQuery('getAllItems');
   const getItemsByAllCategories = () => {
-    const modifiedList = list.filter((itemInArray: Item) =>
-      categories.includes(itemInArray.category)
-    );
-
-    if (modifiedList.length > 0) {
-      return modifiedList.map((itemInArray: Item, key) => {
-        return <Card item={itemInArray} key={key} />;
-      });
-    } else {
+    if (isLoading) {
+      return (
+        <>
+          <span>Loading</span>
+        </>
+      );
+    } else if (error) {
       return (
         <>
           <Error />
         </>
       );
+    } else if (data) {
+      const categories = data.categories;
+
+      const modifiedList = data.list.filter((itemInArray: Item) =>
+        categories.includes(itemInArray.category)
+      );
+
+      if (modifiedList.length > 0) {
+        return modifiedList.map((itemInArray: Item, key) => {
+          return <Card item={itemInArray} key={key} />;
+        });
+      } else {
+        return (
+          <>
+            <Error />
+          </>
+        );
+      }
     }
   };
 

@@ -11,6 +11,6 @@ public class GlobalExceptionController extends RuntimeException {
 
     @ExceptionHandler(value = {RuntimeException.class})
     public void exception() {
-        System.out.println("Throwing Runtime Exception");
+        System.out.println("Handles Exception and Returns Accordingly");
     }
 }

@@ -23,8 +23,8 @@ public class LoggingAspect {
     }
 
     @Around("genericMethods()")
-    public Object handleLogs(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        Object output = null;
+    public Object handleLogs(ProceedingJoinPoint proceedingJoinPoint) {
+        Object output;
         LOGGER.info("Starting execution -> ".concat(proceedingJoinPoint.getTarget().getClass().toString()).concat(", Method: ".concat(proceedingJoinPoint.getSignature().getName())));
         try {
             output = proceedingJoinPoint.proceed();
@@ -38,6 +38,6 @@ public class LoggingAspect {
     @AfterThrowing(pointcut = "execution(* com.b2b.backend..*(..))", throwing = "throwable")
     public void doRecoverHandler(JoinPoint joinPoint, Throwable throwable) {
         LOGGER.error("Execution failed at Class: ".concat(joinPoint.getTarget().getClass().toString()).concat(", Method: ".concat(joinPoint.getSignature().getName()).concat(", with arguments: ".concat(Arrays.toString(joinPoint.getArgs())))));
-        LOGGER.error("EXECUTION LOGS: ".concat(throwable.getMessage()));
+        LOGGER.error("Execution Logs: ".concat(throwable.getMessage()));
     }
 }

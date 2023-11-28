@@ -1,8 +1,8 @@
 interface Item {
   category: string;
   uniqueId: string;
-  title: string;
-  subTitle: string;
+  name: string;
+  rating: string;
   price: string;
 }
 
