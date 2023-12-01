@@ -1220,6 +1220,10 @@ span {
     margin-top: 1rem;
   }
 
+  .md\:ml-\[200px\] {
+    margin-left: 200px;
+  }
+
   .md\:flex {
     display: flex;
   }

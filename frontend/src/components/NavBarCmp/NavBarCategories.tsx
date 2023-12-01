@@ -1,7 +1,14 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { NavLink, Params, useParams } from 'react-router-dom';
+import { Params, useParams } from 'react-router-dom';
 import { useGetAllItemsQuery } from '../../api/items';
 import Error from '../ErrorCmp/Error';
+import {
+  AllSubCategoriesDesktop,
+  AllSubCategoriesMobile,
+} from './AllSubCategories';
+import MainCategories from './MainCategories';
+import SubCategoriesDesktop from './SubCategoriesDesktop';
+import SubCategoriesMobile from './SubCategoriesMobile';
 
 /* This component is for displaying all categories of dresses
 It displays under the Navigation Bar */
@@ -17,7 +24,7 @@ const NavBarCategories = ({ setShowNav }: NavBarCategoriesProps) => {
   const { data, error, isLoading } = useGetAllItemsQuery('getAllItems');
 
   let categories: Array<string> = [];
-  let categoryMap: { [key: string]: Array<string> };
+  let categoryMap: { [key: string]: Array<string> } = {};
 
   useEffect(() => {
     if (!category && showSubCategories) {
@@ -59,134 +66,49 @@ const NavBarCategories = ({ setShowNav }: NavBarCategoriesProps) => {
                     }`}
                     key={key}
                   >
-                    <NavLink
-                      to={`/category/${category}`}
-                      className="a"
-                      onClick={() => {
-                        if (!currentCategory) {
-                          setCurrentCategory(category);
-                          setShowSubCategories(true);
-                        } else if (category === currentCategory) {
-                          setShowSubCategories(!showSubCategories);
-                          setCurrentCategory(null);
-                        } else {
-                          setCurrentCategory(category);
-                          setShowSubCategories(true);
-                        }
-                      }}
-                    >
-                      {category}
-                    </NavLink>
+                    <MainCategories
+                      category={category}
+                      currentCategory={currentCategory}
+                      showSubCategories={showSubCategories}
+                      setCurrentCategory={setCurrentCategory}
+                      setShowSubCategories={setShowSubCategories}
+                    />
                   </li>
-                  {category === currentCategory &&
-                    categoryMap &&
-                    categoryMap![category]?.map(
-                      (subCategory: string, key: number) => {
-                        return (
-                          <li
-                            className={`${
-                              showSubCategories
-                                ? 'subCategoryNavBarForMobile'
-                                : 'hidden'
-                            }`}
-                            key={key}
-                          >
-                            <NavLink
-                              to={`/category/${category}/${subCategory}`}
-                              className="a"
-                              onClick={() => {
-                                setShowNav(false);
-                              }}
-                            >
-                              {subCategory}
-                            </NavLink>
-                          </li>
-                        );
-                      }
-                    )}
-                  {category === currentCategory && (
-                    <div
-                      className={`${
-                        showSubCategories
-                          ? 'allItemsSubCategoryForMobile'
-                          : 'hidden'
-                      }`}
-                    >
-                      <NavLink
-                        to={`/category/${category}`}
-                        className="a"
-                        onClick={() => {
-                          setShowNav(false);
-                        }}
-                      >
-                        All of {category}
-                      </NavLink>
-                    </div>
-                  )}
+
+                  <SubCategoriesMobile
+                    category={category}
+                    currentCategory={currentCategory}
+                    categoryMap={categoryMap}
+                    showSubCategories={showSubCategories}
+                    setShowNav={setShowNav}
+                  />
+                  <AllSubCategoriesMobile
+                    category={category}
+                    showSubCategories={showSubCategories}
+                    currentCategory={currentCategory}
+                    setShowNav={setShowNav}
+                  />
                 </>
               );
             })}
         </ul>
         <ul className="flex flex-col items-center">
-          {categories &&
-            showSubCategories &&
-            categories.map((category: string) => {
-              return (
-                category === currentCategory &&
-                categoryMap &&
-                categoryMap![category]?.map(
-                  (subCategory: string, key: number) => {
-                    return (
-                      <li
-                        className={`${
-                          showSubCategories
-                            ? 'subCategoryNavBarForDesktop'
-                            : 'hidden'
-                        }`}
-                        key={key}
-                      >
-                        <NavLink
-                          to={`/category/${category}/${subCategory}`}
-                          className="a"
-                          onClick={() => {
-                            setShowSubCategories(false);
-                            setCurrentCategory(null);
-                          }}
-                        >
-                          {subCategory}
-                        </NavLink>
-                      </li>
-                    );
-                  }
-                )
-              );
-            })}
-          {categories &&
-            showSubCategories &&
-            categories.map((category: string) => {
-              return (
-                category === currentCategory && (
-                  <div
-                    className={`${
-                      showSubCategories
-                        ? 'allItemsSubCategoryForDesktop'
-                        : 'hidden'
-                    }`}
-                  >
-                    <NavLink
-                      to={`/category/${category}`}
-                      className="a"
-                      onClick={() => {
-                        setShowSubCategories(false);
-                        setCurrentCategory(null);
-                      }}
-                    >
-                      All of {category}
-                    </NavLink>
-                  </div>
-                )
-              );
-            })}
+          <SubCategoriesDesktop
+            categories={categories}
+            categoryMap={categoryMap}
+            currentCategory={currentCategory}
+            showSubCategories={showSubCategories}
+            setCurrentCategory={setCurrentCategory}
+            setShowSubCategories={setShowSubCategories}
+          />
+
+          <AllSubCategoriesDesktop
+            categories={categories}
+            currentCategory={currentCategory}
+            showSubCategories={showSubCategories}
+            setCurrentCategory={setCurrentCategory}
+            setShowSubCategories={setShowSubCategories}
+          />
         </ul>
       </nav>
     </>
