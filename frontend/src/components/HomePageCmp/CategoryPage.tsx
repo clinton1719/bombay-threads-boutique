@@ -9,42 +9,56 @@ showing individual categories */
 
 const CategoryPage = () => {
   const { data, error, isLoading } = useGetAllItemsQuery('getAllItems');
-  const { category }: Readonly<Params<string>> = useParams();
+  const { category, subCategory }: Readonly<Params<string>> = useParams();
+
   const getItemsByCategories = () => {
     if (isLoading) {
-      return undefined;
+      return (
+        <>
+          <span>Loading</span>
+        </>
+      );
     } else if (error) {
-      return undefined;
+      return (
+        <>
+          <Error />
+        </>
+      );
     } else if (data) {
-      const categories = data.categories;
+      const categories: Array<string> = data.categories;
 
-      const modifiedList = data.list.filter(
+      const modifiedList: Array<Item> = data.list.filter(
         (itemInArray: Item) =>
-          categories.includes(itemInArray.category) &&
-          itemInArray.category === category
+          categories.includes(itemInArray.category.name) &&
+          itemInArray.category.name === category &&
+          (!subCategory
+            ? true
+            : subCategory.includes('All of')
+            ? true
+            : subCategory === itemInArray.subCategory.name)
       );
 
       if (modifiedList.length > 0) {
-        return modifiedList;
+        return modifiedList.map((itemInArray: Item, key: number) => {
+          return <Card item={itemInArray} key={key} />;
+        });
       } else {
-        return null;
+        return (
+          <>
+            <Error />
+          </>
+        );
       }
     }
   };
 
   return (
     <>
-      {getItemsByCategories() === null ? (
-        <Error />
-      ) : (
-        <section className="py-10 bg-bgGray mt-20 md:mt-12">
-          <div className="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {getItemsByCategories()!.map((itemInArray: Item, key: number) => {
-              return <Card item={itemInArray} key={key} />;
-            })}
-          </div>
-        </section>
-      )}
+      <section className="py-10 mt-6 md:mt-4">
+        <div className="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {getItemsByCategories()}
+        </div>
+      </section>
     </>
   );
 };

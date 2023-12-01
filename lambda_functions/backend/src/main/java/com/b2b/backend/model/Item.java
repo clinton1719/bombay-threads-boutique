@@ -4,26 +4,36 @@ package com.b2b.backend.model;
  * @Author Clinton Fernandes
  **/
 public class Item {
-    String category;
+    Category category;
+    SubCategory subCategory;
     String uniqueId;
     String name;
     String rating;
     String price;
 
-    public Item(String category, String uniqueId, String name, String rating, String price) {
+    public Item(Category category, SubCategory subCategory, String uniqueId, String name, String rating, String price) {
         this.category = category;
+        this.subCategory = subCategory;
         this.uniqueId = uniqueId;
         this.name = name;
         this.rating = rating;
         this.price = price;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public SubCategory getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
     }
 
     public String getUniqueId() {
@@ -60,12 +70,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "category='" + category + '\'' +
-                ", uniqueId='" + uniqueId + '\'' +
-                ", name='" + name + '\'' +
-                ", rating='" + rating + '\'' +
-                ", price='" + price + '\'' +
-                '}';
+        return "Item{" + "category='" + category + '\'' + ", subCategory='" + subCategory + '\'' + ", uniqueId='" + uniqueId + '\'' + ", name='" + name + '\'' + ", rating='" + rating + '\'' + ", price='" + price + '\'' + '}';
     }
 }

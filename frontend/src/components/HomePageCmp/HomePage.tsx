@@ -22,14 +22,14 @@ const HomePage = () => {
         </>
       );
     } else if (data) {
-      const categories = data.categories;
+      const categories: Array<string> = data.categories;
 
-      const modifiedList = data.list.filter((itemInArray: Item) =>
-        categories.includes(itemInArray.category)
+      const modifiedList: Array<Item> = data.list.filter((itemInArray: Item) =>
+        categories.includes(itemInArray.category.name)
       );
 
       if (modifiedList.length > 0) {
-        return modifiedList.map((itemInArray: Item, key) => {
+        return modifiedList.map((itemInArray: Item, key: number) => {
           return <Card item={itemInArray} key={key} />;
         });
       } else {
@@ -44,7 +44,7 @@ const HomePage = () => {
 
   return (
     <>
-      <section className="py-10 bg-bgGray mt-20 md:mt-12">
+      <section className="py-10 mt-6 md:mt-4">
         <div className="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {getItemsByAllCategories()}
         </div>

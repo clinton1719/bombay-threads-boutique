@@ -3,7 +3,7 @@ import gif from '../../assets/error/huh-jack-sparrow.gif';
 const Error = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-between mt-8">
+      <div className="w-full flex flex-col items-center justify-between mt-8 md:ml-[400px]">
         <img
           src={gif}
           alt="Oops!"

@@ -17,6 +17,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/" element={<NavBar />}>
             <Route index element={<HomePage />} />
             <Route path="/category/:category" element={<CategoryPage />} />
+            <Route
+              path="/category/:category/:subCategory"
+              element={<CategoryPage />}
+            />
             <Route path="*" element={<Error />} />
             <Route errorElement={<Error />} />
           </Route>
