@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import useWindowSize from '../../utils/useWindowSize';
 import NavBarCategories from './NavBarCategories';
 import SearchBar from './SearchBar';
@@ -52,9 +52,9 @@ const NavBar = () => {
             </g>
           </svg>
         </div>
-        <Link className="ml-2" to={'/'}>
+        <NavLink className="ml-2" to={'/'}>
           <span>G.Dezignz</span>
-        </Link>
+        </NavLink>
         {/* Search bar, search icon and button for larger devices */}
         {size.width > 720 ? (
           <SearchBar openSearchBar={openSearchBar} />
@@ -79,9 +79,9 @@ const NavBar = () => {
 
       {/* Categories Bar */}
       {size.width > 720 ? (
-        <NavBarCategories showNav={showNav} setShowNav={setShowNav} />
+        <NavBarCategories setShowNav={setShowNav} />
       ) : showNav ? (
-        <NavBarCategories showNav={showNav} setShowNav={setShowNav} />
+        <NavBarCategories setShowNav={setShowNav} />
       ) : null}
 
       {/* Body of Website */}

@@ -28,7 +28,7 @@ const SearchBar = ({ openSearchBar }: SearchBarProps) => {
         </svg>
         <input
           type="search"
-          className="text-black shadow-md shadow-black rounded-lg outline outline-white placeholder-black ring-2 ring-white text-sm w-full p-4 ps-10"
+          className="text-black shadow-sm shadow-black rounded-lg outline outline-white placeholder-black ring-2 ring-slate-100 text-sm w-full p-4 ps-10 focus:shadow-lg"
           placeholder="Search by item, size, color etc"
         />
         <button className="absolute mt-1 right-4 inset-y-0 md:right-0 btn-primary">

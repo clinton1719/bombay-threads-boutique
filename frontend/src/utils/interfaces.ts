@@ -1,14 +1,25 @@
+interface Category {
+  name: string;
+}
+
+interface SubCategory {
+  name: string;
+}
+
 interface Item {
-  category: string;
+  category: Category;
+  subCategory: SubCategory;
   uniqueId: string;
-  title: string;
-  subTitle: string;
+  name: string;
+  rating: string;
   price: string;
 }
 
 interface ItemsList {
   list: Array<Item>;
   categories: Array<string>;
+  subCategories: Array<string>;
+  categoryMap: { [key: string]: Array<string> };
 }
 
-export type { Item, ItemsList };
+export type { Item, ItemsList, Category, SubCategory };

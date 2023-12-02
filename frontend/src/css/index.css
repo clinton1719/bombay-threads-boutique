@@ -25,8 +25,44 @@
     @apply font-normal text-lg leading-normal text-black tracking-normal hover:font-extrabold hover:underline lg:text-lg;
   }
 
-  .subCategoryNavBar {
-    @apply flex items-center justify-center bg-bgGray w-full h-14 border-t-2 border-b-2 border-black;
+  .categoryNavBar {
+    @apply flex flex-row items-center justify-center w-full h-14 shadow-lg tracking-wide;
+  }
+
+  .categoryNavBarActive {
+    @apply flex flex-row items-center justify-center w-full h-14 shadow-lg tracking-wide bg-black;
+  }
+
+  .subCategoryNavBarForMobile {
+    @apply flex items-center justify-center w-1/2 h-14 z-10 divide-y divide-gray-100 rounded-lg shadow-lg  mt-2 md:hidden bg-black;
+  }
+
+  .subCategoryNavBarForMobile a {
+    @apply text-white;
+  }
+
+  .subCategoryNavBarForDesktop {
+    @apply hidden md:flex items-center justify-center w-1/2 h-14 z-10 divide-y divide-gray-100 rounded-lg shadow-lg bg-black border-2 border-white mt-2;
+  }
+
+  .subCategoryNavBarForDesktop a {
+    @apply text-white;
+  }
+
+  .allItemsSubCategoryForMobile {
+    @apply flex items-center justify-center w-1/2 h-14 z-10 divide-y divide-gray-100 rounded-lg shadow-lg  mt-2 md:hidden bg-black;
+  }
+
+  .allItemsSubCategoryForMobile a {
+    @apply text-white;
+  }
+
+  .allItemsSubCategoryForDesktop {
+    @apply hidden md:flex items-center justify-center w-1/2 h-14 z-10 divide-y divide-gray-100 rounded-lg shadow-lg bg-black mt-2;
+  }
+
+  .allItemsSubCategoryForDesktop a {
+    @apply text-white;
   }
 
   .btn-primary {
@@ -35,5 +71,9 @@
 
   .btn-secondary {
     @apply max-h-11 bg-white text-black font-semibold py-2 px-4 shadow-md shadow-white rounded-lg outline outline-black hover:shadow-xl hover:transform hover:scale-105 duration-300;
+  }
+
+  .categoryNavBarActive a.active {
+    @apply text-white text-xl font-extrabold underline lg:text-xl animate-waving;
   }
 }
