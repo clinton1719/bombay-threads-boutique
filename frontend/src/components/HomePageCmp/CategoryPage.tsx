@@ -3,6 +3,9 @@ import { useGetAllItemsQuery } from '../../api/items';
 import { Item } from '../../utils/interfaces';
 import Card from '../CardCmp/Card';
 import Error from '../ErrorCmp/Error';
+import BreadCrumb from '../BreadCrumbCmp/BreadCrumb';
+import Footer from '../FooterCmp/Footer';
+import Loader from '../LoaderCmp/Loader';
 
 /* This Component is for 
 showing individual categories */
@@ -15,7 +18,7 @@ const CategoryPage = () => {
     if (isLoading) {
       return (
         <>
-          <span>Loading</span>
+          <Loader />
         </>
       );
     } else if (error) {
@@ -54,11 +57,13 @@ const CategoryPage = () => {
 
   return (
     <>
-      <section className="py-10 mt-6 md:mt-4">
+      <BreadCrumb />
+      <section className="py-6">
         <div className="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {getItemsByCategories()}
         </div>
       </section>
+      <Footer />
     </>
   );
 };

@@ -23,9 +23,9 @@ public class ShoppingController {
     @GetMapping("/getAllItems")
     public ItemsList getDummyList() {
         List<Item> itemsList = new ArrayList<>();
-        Category category1 = new Category("Men");
-        Category category2 = new Category("Women");
-        Category category3 = new Category("Decor");
+        Category category1 = new Category("MEN");
+        Category category2 = new Category("WOMEN");
+        Category category3 = new Category("DECOR");
         SubCategory subCat1 = new SubCategory("Shirts");
         SubCategory subCat2 = new SubCategory("Pants");
         SubCategory subCat3 = new SubCategory("Cardigans");

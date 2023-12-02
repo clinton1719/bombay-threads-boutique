@@ -29,7 +29,7 @@ const AllSubCategoriesMobile = ({
               setShowNav(false);
             }}
           >
-            All of {category}
+            ALL OF {category}
           </NavLink>
         </div>
       )}
@@ -72,7 +72,7 @@ const AllSubCategoriesDesktop = ({
                     setCurrentCategory(null);
                   }}
                 >
-                  All of {category}
+                  ALL OF {category}
                 </NavLink>
               </div>
             )
