@@ -6,7 +6,7 @@
   "author": "clinton1719 <clintoncleetus17@gmail.com>",
   "private": true,
   "dependencies": {
-    "vite": "^5.0.0"
+    "vite": "^5.0.5"
   },
   "workspaces": {
     "packages": [
