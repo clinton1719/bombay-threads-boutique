@@ -1,16 +1,20 @@
-package com.b2b.backend.model;
+package com.crochet.backend.model;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * @Author Clinton Fernandes
- **/
+ * @author Clinton Fernandes
+ */
 public class ItemsList {
-    List<Item> list;
-    List<String> categories;
-    List<String> subCategories;
-    Map<String, List<String>> categoryMap;
+
+    private List<Item> list;
+    private List<String> categories;
+    private List<String> subCategories;
+    private Map<String, List<String>> categoryMap;
+
+    public ItemsList() {
+    }
 
     public ItemsList(List<Item> list, List<String> categories, List<String> subCategories, Map<String, List<String>> categoryMap) {
         this.list = list;

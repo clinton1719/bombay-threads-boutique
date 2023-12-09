@@ -1,23 +1,26 @@
-package com.b2b.backend.model;
+package com.crochet.backend.model;
 
 /**
- * @Author Clinton Fernandes
- **/
+ * @author Clinton Fernandes
+ */
 public class Item {
-    Category category;
-    SubCategory subCategory;
-    String uniqueId;
-    String name;
-    String rating;
-    String price;
+    private Category category;
+    private SubCategory subCategory;
+    private String uniqueId;
+    private String name;
+    private String price;
+    private String rating;
 
-    public Item(Category category, SubCategory subCategory, String uniqueId, String name, String rating, String price) {
+    public Item() {
+    }
+
+    public Item(Category category, SubCategory subCategory, String uniqueId, String name, String price, String rating) {
         this.category = category;
         this.subCategory = subCategory;
         this.uniqueId = uniqueId;
         this.name = name;
-        this.rating = rating;
         this.price = price;
+        this.rating = rating;
     }
 
     public Category getCategory() {
@@ -52,14 +55,6 @@ public class Item {
         this.name = name;
     }
 
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
-
     public String getPrice() {
         return price;
     }
@@ -68,8 +63,23 @@ public class Item {
         this.price = price;
     }
 
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
     @Override
     public String toString() {
-        return "Item{" + "category='" + category + '\'' + ", subCategory='" + subCategory + '\'' + ", uniqueId='" + uniqueId + '\'' + ", name='" + name + '\'' + ", rating='" + rating + '\'' + ", price='" + price + '\'' + '}';
+        return "Item{" +
+                "category=" + category +
+                ", subCategory=" + subCategory +
+                ", uniqueId='" + uniqueId + '\'' +
+                ", name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", rating='" + rating + '\'' +
+                '}';
     }
 }

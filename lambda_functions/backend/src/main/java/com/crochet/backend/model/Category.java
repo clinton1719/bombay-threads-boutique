@@ -1,10 +1,14 @@
-package com.b2b.backend.model;
+package com.crochet.backend.model;
 
 /**
- * @Author Clinton Fernandes
- **/
+ * @author Clinton Fernandes
+ */
+
 public class Category {
-    String name;
+    private String name;
+
+    public Category() {
+    }
 
     public Category(String name) {
         this.name = name;

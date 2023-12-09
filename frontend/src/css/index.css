@@ -7,6 +7,7 @@
 
   color: #ffffff;
   background-color: #ffffff;
+  letter-spacing: 0.05em;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,11 +19,19 @@
   span {
     @apply font-bold text-sm leading-normal lg:text-lg text-black tracking-normal;
   }
+
+  label {
+    @apply uppercase tracking-wide text-black text-xs font-bold;
+  }
+
+  input {
+    @apply text-black shadow-sm shadow-black rounded-lg placeholder-slate-600 ring-1 ring-slate-200 text-sm w-full p-4 ps-10 focus:shadow-lg focus:outline focus:outline-black;
+  }
 }
 
 @layer components {
   .a {
-    @apply font-normal text-lg leading-normal text-black tracking-normal hover:font-extrabold hover:underline lg:text-lg;
+    @apply font-bold text-lg leading-normal text-black tracking-normal hover:font-extrabold hover:underline lg:text-lg;
   }
 
   .categoryNavBar {
@@ -65,15 +74,25 @@
     @apply text-white;
   }
 
+  .categoryNavBarActive a.active {
+    @apply text-white text-xl font-extrabold underline lg:text-xl animate-waving;
+  }
+
+  .adminDashboard {
+    @apply w-full max-w-sm h-full shadow-md rounded-lg ring-2 ring-slate-100 mt-20 px-4 py-6 mb-24 mx-auto flex flex-col items-center justify-center text-black gap-6 md:max-w-xl;
+  }
+
+  .addItemDashBoard {
+    @apply w-full max-w-sm mx-auto shadow-md rounded-lg ring-2 ring-slate-100 px-4 pt-4 pb-4 mt-20 mb-20 md:max-w-screen-lg;
+  }
+}
+
+@layer utilities {
   .btn-primary {
     @apply max-h-11 bg-black text-white font-semibold py-2 px-4 shadow-md shadow-black rounded-lg outline outline-white hover:shadow-xl hover:transform hover:scale-105 duration-300;
   }
 
   .btn-secondary {
     @apply max-h-11 bg-white text-black font-semibold py-2 px-4 shadow-md shadow-white rounded-lg outline outline-black hover:shadow-xl hover:transform hover:scale-105 duration-300;
-  }
-
-  .categoryNavBarActive a.active {
-    @apply text-white text-xl font-extrabold underline lg:text-xl animate-waving;
   }
 }

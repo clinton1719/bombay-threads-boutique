@@ -8,6 +8,8 @@ import NavBar from './components/NavBarCmp/NavBar.tsx';
 import './css/main.min.css';
 import store from './redux/store.ts';
 import Error from './components/ErrorCmp/Error.tsx';
+import AddItem from './components/AdminCmp/FormsCmp/AddItem.tsx';
+import Admin from './components/AdminCmp/Admin.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -16,12 +18,21 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<NavBar />}>
             <Route index element={<HomePage />} />
-            <Route path="/category/:category" element={<CategoryPage />} />
-            <Route
-              path="/category/:category/:subCategory"
-              element={<CategoryPage />}
-            />
+
+            <Route path="/category/:category" element={<CategoryPage />}>
+              <Route
+                path="/category/:category/:subCategory"
+                element={<CategoryPage />}
+              />
+            </Route>
+
+            <Route path="/admin">
+              <Route index element={<Admin />} />
+              <Route path="/admin/addItem" element={<AddItem />} />
+            </Route>
+
             <Route path="*" element={<Error />} />
+
             <Route errorElement={<Error />} />
           </Route>
         </Routes>

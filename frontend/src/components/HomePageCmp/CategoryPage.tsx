@@ -1,10 +1,9 @@
 import { Params, useParams } from 'react-router-dom';
 import { useGetAllItemsQuery } from '../../api/items';
 import { Item } from '../../utils/interfaces';
+import BreadCrumb from '../BreadCrumbCmp/BreadCrumb';
 import Card from '../CardCmp/Card';
 import Error from '../ErrorCmp/Error';
-import BreadCrumb from '../BreadCrumbCmp/BreadCrumb';
-import Footer from '../FooterCmp/Footer';
 import Loader from '../LoaderCmp/Loader';
 
 /* This Component is for 
@@ -36,7 +35,7 @@ const CategoryPage = () => {
           itemInArray.category.name === category &&
           (!subCategory
             ? true
-            : subCategory.includes('All of')
+            : subCategory.includes('ALL OF')
             ? true
             : subCategory === itemInArray.subCategory.name)
       );
@@ -63,7 +62,6 @@ const CategoryPage = () => {
           {getItemsByCategories()}
         </div>
       </section>
-      <Footer />
     </>
   );
 };

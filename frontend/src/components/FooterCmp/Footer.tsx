@@ -167,7 +167,7 @@ const Footer = () => {
           </div>
           <div className="bg-gray-300">
             <div className="container px-5 py-4 mx-auto">
-              <p className="text-sm text-gray-700 capitalize xl:text-center">
+              <p className="text-sm text-gray-700 capitalize text-center">
                 © 2024 All rights reserved{' '}
               </p>
             </div>

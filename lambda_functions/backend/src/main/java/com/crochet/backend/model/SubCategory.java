@@ -1,10 +1,15 @@
-package com.b2b.backend.model;
+package com.crochet.backend.model;
 
 /**
- * @Author Clinton Fernandes
- **/
+ * @author Clinton Fernandes
+ */
+
 public class SubCategory {
-    String name;
+
+    private String name;
+
+    public SubCategory() {
+    }
 
     public SubCategory(String name) {
         this.name = name;

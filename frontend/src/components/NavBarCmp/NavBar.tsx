@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import useWindowSize from '../../utils/useWindowSize';
 import NavBarCategories from './NavBarCategories';
 import SearchBar from './SearchBar';
+import Footer from '../FooterCmp/Footer';
 
 /* This is for displaying the main Navigation Bar
 It has logo, search, sign in etc */
@@ -86,6 +87,7 @@ const NavBar = () => {
 
       {/* Body of Website */}
       <Outlet />
+      <Footer />
     </>
   );
 };

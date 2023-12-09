@@ -3,7 +3,6 @@ import { Item } from '../../utils/interfaces';
 import BreadCrumb from '../BreadCrumbCmp/BreadCrumb';
 import Card from '../CardCmp/Card';
 import Error from '../ErrorCmp/Error';
-import Footer from '../FooterCmp/Footer';
 import Loader from '../LoaderCmp/Loader';
 
 /* This Component is for 
@@ -19,6 +18,7 @@ const HomePage = () => {
         </>
       );
     } else if (error) {
+      console.log(error);
       return (
         <>
           <Error />
@@ -53,7 +53,6 @@ const HomePage = () => {
           {getItemsByAllCategories()}
         </div>
       </section>
-      <Footer />
     </>
   );
 };
